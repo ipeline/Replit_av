@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Switch, Route } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
@@ -10,6 +11,7 @@ import DoAndDont from "@/components/DoAndDont";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import PackDetail from "@/pages/PackDetail";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +34,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Home />
+        <Switch>
+          <Route path="/forfait/:slug" component={PackDetail} />
+          <Route component={Home} />
+        </Switch>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>

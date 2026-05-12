@@ -1,57 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, Zap } from "lucide-react";
-
-const packs = [
-  {
-    name: "Coup de pouce",
-    tagline: "Pour démarrer sereinement",
-    price: "290€",
-    period: "/ mois",
-    highlight: false,
-    services: [
-      "Gestion d'agenda",
-      "Gestion des emails",
-      "Recherches ponctuelles",
-    ],
-    quotas: ["30 emails / mois", "Agenda : jusqu'à 10 rdv", "5 recherches / mois"],
-    cta: "Choisir ce forfait",
-  },
-  {
-    name: "Sérénité",
-    tagline: "Le plus choisi",
-    price: "650€",
-    period: "/ mois",
-    highlight: true,
-    services: [
-      "Gestion d'agenda",
-      "Gestion des emails",
-      "Organisation & Optimisation",
-      "Réseaux sociaux",
-      "Saisie de données",
-      "1 point mensuel avec vous",
-    ],
-    quotas: ["75 emails / mois", "Agenda : jusqu'à 30 rdv", "Réseaux : 3 posts / sem."],
-    cta: "Choisir ce forfait",
-  },
-  {
-    name: "Bras droit",
-    tagline: "Délégation complète",
-    price: "1 200€",
-    period: "/ mois",
-    highlight: false,
-    services: [
-      "Gestion d'agenda",
-      "Gestion des emails",
-      "Organisation & Optimisation",
-      "Réseaux sociaux",
-      "Saisie de données",
-      "Recherches diverses",
-      "1 point hebdomadaire avec vous",
-    ],
-    quotas: ["Emails illimités", "Agenda complet", "Toutes les tâches incluses"],
-    cta: "Choisir ce forfait",
-  },
-];
+import { useLocation } from "wouter";
+import { packs } from "@/data/packs";
 
 const container = {
   hidden: { opacity: 0 },
@@ -64,9 +14,7 @@ const item = {
 };
 
 export default function Services() {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const [, navigate] = useLocation();
 
   return (
     <section id="services" className="py-24 bg-background/50">
@@ -90,9 +38,9 @@ export default function Services() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-start"
         >
-          {packs.map((pack, index) => (
+          {packs.map((pack) => (
             <motion.div
-              key={index}
+              key={pack.slug}
               variants={item}
               className="flex flex-col rounded-2xl p-8 relative"
               style={
@@ -112,7 +60,7 @@ export default function Services() {
             >
               {pack.highlight && (
                 <div
-                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[11px] font-bold tracking-widest uppercase px-4 py-1 rounded-full"
+                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[11px] font-bold tracking-widest uppercase px-4 py-1 rounded-full whitespace-nowrap"
                   style={{ background: "#F3AB06", color: "#72270C" }}
                 >
                   Le plus choisi
@@ -125,10 +73,7 @@ export default function Services() {
               >
                 {pack.name}
               </h3>
-              <p
-                className="text-sm mb-5"
-                style={{ color: pack.highlight ? "#72270C" : "#999" }}
-              >
+              <p className="text-sm mb-5" style={{ color: pack.highlight ? "#72270C" : "#999" }}>
                 {pack.tagline}
               </p>
 
@@ -147,7 +92,11 @@ export default function Services() {
               {/* Services list */}
               <div
                 className="flex-1 pt-5 mb-4"
-                style={{ borderTop: pack.highlight ? "1px solid rgba(255,255,255,0.5)" : "1px solid rgba(243,171,6,0.35)" }}
+                style={{
+                  borderTop: pack.highlight
+                    ? "1px solid rgba(255,255,255,0.5)"
+                    : "1px solid rgba(243,171,6,0.35)",
+                }}
               >
                 {pack.services.map((srv, j) => (
                   <div key={j} className="flex items-start gap-2.5 mb-2.5">
@@ -159,7 +108,7 @@ export default function Services() {
                       className="text-sm leading-snug"
                       style={{ color: pack.highlight ? "#3a3a3a" : "#555" }}
                     >
-                      {srv}
+                      {srv.titre}
                     </span>
                   </div>
                 ))}
@@ -167,11 +116,14 @@ export default function Services() {
 
               {/* Volume quotas */}
               <div
-                className="rounded-xl p-3 mb-6"
+                className="rounded-xl p-3 mb-4"
                 style={
                   pack.highlight
                     ? { background: "rgba(255,255,255,0.4)" }
-                    : { background: "rgba(243,171,6,0.07)", border: "1px dashed rgba(243,171,6,0.4)" }
+                    : {
+                        background: "rgba(243,171,6,0.07)",
+                        border: "1px dashed rgba(243,171,6,0.4)",
+                      }
                 }
               >
                 <div className="flex items-center gap-1.5 mb-2">
@@ -207,8 +159,17 @@ export default function Services() {
                 ))}
               </div>
 
+              {/* Detail link */}
               <button
-                onClick={scrollToContact}
+                onClick={() => navigate(`/forfait/${pack.slug}`)}
+                className="w-full text-xs mb-3 underline underline-offset-2 transition-opacity hover:opacity-70"
+                style={{ color: pack.highlight ? "#72270C" : "#999" }}
+              >
+                Voir le détail complet →
+              </button>
+
+              <button
+                onClick={() => navigate(`/forfait/${pack.slug}`)}
                 className="w-full py-3 rounded-xl text-sm font-semibold transition-opacity hover:opacity-90 cursor-pointer"
                 style={
                   pack.highlight
@@ -216,7 +177,7 @@ export default function Services() {
                     : { background: "transparent", border: "2px solid #F3AB06", color: "#72270C" }
                 }
               >
-                {pack.cta}
+                Choisir ce forfait
               </button>
             </motion.div>
           ))}
@@ -225,7 +186,9 @@ export default function Services() {
         <p className="text-center mt-14 text-foreground/60 text-sm">
           Des besoins spécifiques ?{" "}
           <button
-            onClick={scrollToContact}
+            onClick={() =>
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+            }
             className="text-accent underline underline-offset-2 hover:opacity-80 transition-opacity"
           >
             Parlons-en
