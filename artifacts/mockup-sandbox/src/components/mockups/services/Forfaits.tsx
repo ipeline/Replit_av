@@ -74,9 +74,9 @@ export function Forfaits() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px", maxWidth: "980px", margin: "0 auto" }}>
         {packs.map((pack, i) => {
           const isGreen = pack.highlight;
-          const cardBg = isGreen ? "#ABC4AA" : "#fff";
-          const cardBorder = isGreen ? "none" : `2px solid #F3AB06`;
-          const cardShadow = isGreen ? "0 8px 32px rgba(171,196,170,0.45)" : "0 1px 4px rgba(0,0,0,0.05)";
+          const cardBg = isGreen ? "rgba(171,196,170,0.45)" : "#fff";
+          const cardBorder = isGreen ? "1px solid rgba(171,196,170,0.6)" : `2px solid #F3AB06`;
+          const cardShadow = isGreen ? "0 8px 32px rgba(171,196,170,0.3)" : "0 1px 4px rgba(0,0,0,0.05)";
           const headingColor = isGreen ? "#D45B1A" : "#72270C";
           const priceColor = isGreen ? "#D45B1A" : "#72270C";
           const taglineColor = isGreen ? "#72270C" : "#999";
