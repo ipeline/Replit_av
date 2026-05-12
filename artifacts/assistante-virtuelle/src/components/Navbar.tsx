@@ -44,7 +44,7 @@ export default function Navbar() {
             className="h-8 w-8 object-contain"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
           />
-          <span className="text-3xl font-serif font-bold text-[#72270C] border-t-[#abc5aa] border-r-[#abc5aa] border-b-[#abc5aa] border-l-[#abc5aa] border-t-[1px] border-r-[1px] border-b-[1px] border-l-[1px] rounded-tl-[3.4028234663852886e+38px] rounded-tr-[3.4028234663852886e+38px] rounded-br-[3.4028234663852886e+38px] rounded-bl-[3.4028234663852886e+38px] mt-[24px] mb-[24px]">Ipe•Line | Assistante virtuelle</span>
+          <span className="font-serif font-bold text-[#72270C] border-t-[#abc5aa] border-r-[#abc5aa] border-b-[#abc5aa] border-l-[#abc5aa] border-t-[1px] border-r-[1px] border-b-[1px] border-l-[1px] rounded-tl-[3.4028234663852886e+38px] rounded-tr-[3.4028234663852886e+38px] rounded-br-[3.4028234663852886e+38px] rounded-bl-[3.4028234663852886e+38px] mt-[24px] mb-[24px] bg-[#abc5aa4d] text-[35px]">Ipe•Line | Assistante virtuelle</span>
         </div>
 
         {/* Desktop Nav */}
