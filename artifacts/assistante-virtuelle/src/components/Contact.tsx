@@ -45,7 +45,7 @@ export default function Contact() {
             Me contacter
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-4">
-            Parlons de votre projet
+            Prêt(e) à reprendre le contrôle de votre emploi du temps ?
           </h2>
           <p className="text-foreground/60 text-lg max-w-lg mx-auto">
             Décrivez-moi votre sujet principal et je reviendrai vers vous sous 24h.

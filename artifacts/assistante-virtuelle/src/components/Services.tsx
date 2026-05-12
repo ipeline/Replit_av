@@ -82,9 +82,9 @@ export default function Services() {
             <motion.div 
               key={index}
               variants={item}
-              className="bg-white p-8 rounded-2xl shadow-sm border border-border/40 hover:shadow-md transition-shadow group"
+              className="bg-white p-8 rounded-2xl shadow-sm border border-border/40"
             >
-              <div className={`w-14 h-14 rounded-xl ${service.color} text-white flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform`}>
+              <div className={`w-14 h-14 rounded-xl ${service.color} text-white flex items-center justify-center mb-6 shadow-sm`}>
                 {service.icon}
               </div>
               <h3 className="text-2xl font-serif font-bold text-primary mb-4">{service.title}</h3>
