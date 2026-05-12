@@ -22,7 +22,6 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]"></div>
       </div>
-
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center mt-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,7 +35,7 @@ export default function Hero() {
           
           <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary leading-tight mb-6">
             Libérez votre temps,<br />
-            <span className="text-foreground">concentrez-vous sur l'essentiel.</span>
+            <span className="text-foreground">Retrouvez le temps de faire grandir votre entreprise.</span>
           </h1>
           
           <p className="text-lg md:text-xl text-foreground/80 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -62,7 +61,6 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
