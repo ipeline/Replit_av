@@ -51,58 +51,57 @@
 
 :root {
   --background: 43 100% 98%; /* #FFFDF8 */
-  --foreground: 16 81% 25%; /* #72270C */
-  
-  --border: 118 19% 72%; /* #ABC4AA */
-  --input: 118 19% 72%;
+  --foreground: 20 12% 18%; /* warm dark charcoal — body text, not brown */
+
+  --border: 118 19% 78%; /* #ABC4AA lightened */
+  --input: 118 19% 78%;
   --ring: 21 78% 47%; /* #D45B1A */
-  
-  --card: 43 100% 98%;
-  --card-foreground: 16 81% 25%;
-  --card-border: 118 19% 72%;
-  
-  --popover: 43 100% 98%;
-  --popover-foreground: 16 81% 25%;
-  --popover-border: 118 19% 72%;
-  
-  --primary: 16 81% 25%; /* #72270C */
+
+  --card: 0 0% 100%;
+  --card-foreground: 20 12% 18%;
+  --card-border: 118 19% 80%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 12% 18%;
+  --popover-border: 118 19% 78%;
+
+  --primary: 16 81% 25%; /* #72270C — used for headings, buttons, brand */
   --primary-foreground: 0 0% 100%;
-  
+
   --secondary: 118 19% 72%; /* #ABC4AA */
   --secondary-foreground: 16 81% 25%;
-  
-  --muted: 43 100% 95%;
-  --muted-foreground: 16 81% 40%;
-  
+
+  --muted: 43 60% 94%;
+  --muted-foreground: 20 10% 45%;
+
   --accent: 21 78% 47%; /* #D45B1A */
   --accent-foreground: 0 0% 100%;
-  
+
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  
+
   --radius: 0.5rem;
 }
 
 .dark {
-  /* Using same colors as default, no dark mode required */
-  --background: 43 100% 98%; /* #FFFDF8 */
-  --foreground: 16 81% 25%; /* #72270C */
-  --border: 118 19% 72%; /* #ABC4AA */
-  --input: 118 19% 72%;
-  --ring: 21 78% 47%; /* #D45B1A */
-  --card: 43 100% 98%;
-  --card-foreground: 16 81% 25%;
-  --card-border: 118 19% 72%;
-  --popover: 43 100% 98%;
-  --popover-foreground: 16 81% 25%;
-  --popover-border: 118 19% 72%;
-  --primary: 16 81% 25%; /* #72270C */
+  --background: 43 100% 98%;
+  --foreground: 20 12% 18%;
+  --border: 118 19% 78%;
+  --input: 118 19% 78%;
+  --ring: 21 78% 47%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 12% 18%;
+  --card-border: 118 19% 80%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 12% 18%;
+  --popover-border: 118 19% 78%;
+  --primary: 16 81% 25%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 118 19% 72%; /* #ABC4AA */
+  --secondary: 118 19% 72%;
   --secondary-foreground: 16 81% 25%;
-  --muted: 43 100% 95%;
-  --muted-foreground: 16 81% 40%;
-  --accent: 21 78% 47%; /* #D45B1A */
+  --muted: 43 60% 94%;
+  --muted-foreground: 20 10% 45%;
+  --accent: 21 78% 47%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;

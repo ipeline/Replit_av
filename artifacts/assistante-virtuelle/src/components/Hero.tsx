@@ -32,6 +32,12 @@ export default function Hero() {
           <div className="inline-block px-4 py-1.5 rounded-full bg-secondary/30 text-primary font-medium text-sm mb-6 border border-secondary">
             Assistante Virtuelle Indépendante
           </div>
+
+          <h1 className="text-4xl md:text-6xl font-serif font-bold text-primary leading-tight mb-6">
+            Retrouvez le{" "}
+            <em style={{ color: "#D45B1A", fontStyle: "italic" }}>temps</em>{" "}
+            de faire grandir votre entreprise.
+          </h1>
           
           <p className="text-lg md:text-xl text-foreground/80 mb-10 max-w-2xl mx-auto leading-relaxed">
             Je prends en charge vos tâches administratives et chronophages pour que vous puissiez vous consacrer pleinement au développement de votre activité.
@@ -45,14 +51,20 @@ export default function Hero() {
             >
               Découvrir mes services
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              onClick={() => scrollTo("contact")}
-              className="border-primary text-primary hover:bg-primary/5 text-base px-8 h-14 w-full sm:w-auto"
+            <a
+              href="https://calendly.com/votre-lien"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
-              Prendre un café virtuel
-            </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-[#D45B1A] text-[#D45B1A] hover:bg-[#D45B1A]/5 text-base px-8 h-14 w-full"
+              >
+                Prendre un café virtuel ☕
+              </Button>
+            </a>
           </div>
         </motion.div>
       </div>
