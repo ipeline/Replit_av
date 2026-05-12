@@ -34,9 +34,18 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div
-          className="text-2xl font-serif font-bold text-primary cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer"
           onClick={() => scrollTo("hero")}
-        >Ipe•Line</div>
+        >
+          {/* Replace /logo.png with your actual logo file placed in the public/ folder */}
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="h-8 w-8 object-contain"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+          />
+          <span className="text-2xl font-serif font-bold text-primary">Ipe•Line</span>
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8">

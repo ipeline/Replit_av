@@ -37,7 +37,7 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="inline-block px-4 py-1.5 rounded-full bg-[#F3AB06]/20 text-[#D45B1A] font-medium text-sm mb-6">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-[#F3AB06]/20 text-[#D45B1A] font-medium text-sm mb-6 text-center w-full">
               À propos de moi
             </div>
             

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Calendar, Mail, FileText, Share2, Database, Search } from "lucide-react";
+import { Calendar, Mail, LayoutDashboard, Share2, Database, Search } from "lucide-react";
 
 const services = [
   {
@@ -15,9 +15,9 @@ const services = [
     color: "bg-[#F3AB06]"
   },
   {
-    icon: <FileText className="w-6 h-6" />,
-    title: "Rédaction & Relecture",
-    description: "Mise en page de documents, correction orthographique, création de présentations soignées.",
+    icon: <LayoutDashboard className="w-6 h-6" />,
+    title: "Organisation & Optimisation",
+    description: "Mise en place d'outils de suivi, clarification des tâches à prioriser, structuration de votre activité pour gagner en clarté et en efficacité.",
     color: "bg-accent"
   },
   {
@@ -61,7 +61,7 @@ export default function Services() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block px-4 py-1.5 rounded-full bg-secondary/20 text-primary font-medium text-sm mb-6">
-            Mes expertises
+            Ce que je vous propose
           </div>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
             L'accompagnement sur-mesure

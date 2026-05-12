@@ -22,7 +22,7 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]"></div>
       </div>
-      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center mt-20">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center mt-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
