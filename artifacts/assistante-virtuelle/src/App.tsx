@@ -8,6 +8,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import DoAndDont from "@/components/DoAndDont";
 import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ function Home() {
       <DoAndDont />
       <Services />
       <FAQ />
+      <Contact />
       <Footer />
     </div>
   );
