@@ -133,16 +133,6 @@ export const packs: Pack[] = [
         ],
       },
       {
-        titre: "Saisie de données",
-        detail:
-          "Mise à jour de vos outils (CRM, tableaux, etc.), saisie régulière d'informations clés.",
-        exemples: [
-          "Mise à jour de votre CRM ou base de contacts",
-          "Suivi d'indicateurs dans un tableau de bord",
-          "Saisie de devis ou factures simples",
-        ],
-      },
-      {
         titre: "Point mensuel",
         detail:
           "Un rendez-vous mensuel de 30 à 45 min pour faire le bilan, ajuster les priorités et planifier le mois suivant.",
