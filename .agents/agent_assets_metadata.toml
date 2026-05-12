@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "09acC6rhmQCES-QylNA0U"
+uri = "file://artifacts/assistante-virtuelle/public/hero-bg.png"
+type = "image"
+title = "Warm elegant home office"
+
+[[generated]]
+id = "fHVvlgewbE_NeoDgdVpyv"
+uri = "file://artifacts/assistante-virtuelle/public/about-bg.png"
+type = "image"
+title = "Warm professional woman desk"

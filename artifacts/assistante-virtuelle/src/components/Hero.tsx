@@ -1,0 +1,79 @@
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+
+export default function Hero() {
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <section
+      id="hero"
+      className="relative h-[100dvh] min-h-[600px] flex items-center justify-center overflow-hidden"
+    >
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/hero-bg.png"
+          alt="Warm home office workspace"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]"></div>
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center text-center mt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-3xl"
+        >
+          <div className="inline-block px-4 py-1.5 rounded-full bg-secondary/30 text-primary font-medium text-sm mb-6 border border-secondary">
+            Assistante Virtuelle Indépendante
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary leading-tight mb-6">
+            Libérez votre temps,<br />
+            <span className="text-foreground">concentrez-vous sur l'essentiel.</span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-foreground/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Je prends en charge vos tâches administratives et chronophages pour que vous puissiez vous consacrer pleinement au développement de votre activité.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button 
+              size="lg" 
+              onClick={() => scrollTo("services")}
+              className="bg-primary text-white hover:bg-primary/90 text-base px-8 h-14 w-full sm:w-auto"
+            >
+              Découvrir mes services
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => scrollTo("contact")}
+              className="border-primary text-primary hover:bg-primary/5 text-base px-8 h-14 w-full sm:w-auto"
+            >
+              Prendre un café virtuel
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer"
+        onClick={() => scrollTo("about")}
+      >
+        <div className="w-[30px] h-[50px] rounded-full border-2 border-primary flex justify-center p-2">
+          <div className="w-1.5 h-3 bg-primary rounded-full"></div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}

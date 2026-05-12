@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Assistante Virtuelle"
+version = "1.0.0"
+id = "artifacts/assistante-virtuelle"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18227
+
+[services.development]
+run = "pnpm --filter @workspace/assistante-virtuelle run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/assistante-virtuelle", "run", "build" ]
+publicDir = "artifacts/assistante-virtuelle/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18227"
+BASE_PATH = "/"
