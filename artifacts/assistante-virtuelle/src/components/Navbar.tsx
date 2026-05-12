@@ -44,7 +44,7 @@ export default function Navbar() {
             className="h-8 w-8 object-contain"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
           />
-          <span className="text-3xl font-serif font-bold text-[#D45B1A]">Ipe•Line</span>
+          <span className="text-3xl font-serif font-bold text-[#72270C]">Ipe•Line | Assistante virtuelle</span>
         </div>
 
         {/* Desktop Nav */}
