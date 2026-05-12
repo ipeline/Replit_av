@@ -33,11 +33,6 @@ export default function Hero() {
             Assistante Virtuelle Indépendante
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary leading-tight mb-6">
-            Libérez votre temps,<br />
-            <span className="text-foreground">Retrouvez le temps de faire grandir votre entreprise.</span>
-          </h1>
-          
           <p className="text-lg md:text-xl text-foreground/80 mb-10 max-w-2xl mx-auto leading-relaxed">
             Je prends en charge vos tâches administratives et chronophages pour que vous puissiez vous consacrer pleinement au développement de votre activité.
           </p>
