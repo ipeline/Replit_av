@@ -36,9 +36,7 @@ export default function Navbar() {
         <div
           className="text-2xl font-serif font-bold text-primary cursor-pointer"
           onClick={() => scrollTo("hero")}
-        >
-          Claire Dubois.
-        </div>
+        >Ipe•Line</div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8">
@@ -76,7 +74,6 @@ export default function Navbar() {
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
-
       {/* Mobile Nav */}
       {mobileMenuOpen && (
         <motion.div
