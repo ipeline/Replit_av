@@ -56,17 +56,6 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer"
-        onClick={() => scrollTo("about")}
-      >
-        <div className="w-[30px] h-[50px] rounded-full border-2 border-primary flex justify-center p-2">
-          <div className="w-1.5 h-3 bg-primary rounded-full"></div>
-        </div>
-      </motion.div>
     </section>
   );
 }
