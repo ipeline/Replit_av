@@ -12,6 +12,7 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import PackDetail from "@/pages/PackDetail";
+import PriseDeRdv from "@/pages/PriseDeRdv";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ function App() {
       <TooltipProvider>
         <Switch>
           <Route path="/forfait/:slug" component={PackDetail} />
+          <Route path="/rdv/:slug" component={PriseDeRdv} />
           <Route component={Home} />
         </Switch>
         <Toaster />

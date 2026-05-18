@@ -51,10 +51,7 @@ export default function PackDetail() {
   }
 
   const scrollToContact = () => {
-    navigate("/");
-    setTimeout(() => {
-      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+    navigate(`/rdv/${pack?.slug ?? ""}`);
   };
 
   return (

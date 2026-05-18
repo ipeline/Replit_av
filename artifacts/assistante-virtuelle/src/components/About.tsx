@@ -15,8 +15,8 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-2xl overflow-hidden relative z-10 border-[8px] border-white shadow-xl">
               <img 
-                src="/about-bg.png" 
-                alt="Claire Dubois à son bureau" 
+                src="/profile.jpg" 
+                alt="Ipe·Line" 
                 className="w-full h-full object-cover"
               />
             </div>

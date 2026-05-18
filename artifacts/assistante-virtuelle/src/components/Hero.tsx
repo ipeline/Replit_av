@@ -29,10 +29,6 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <div className="inline-block px-4 py-1.5 rounded-full bg-secondary/30 text-primary font-medium text-sm mb-6 border border-secondary">
-            Assistante Virtuelle Indépendante
-          </div>
-
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-primary leading-tight mb-6">
             Retrouvez le{" "}
             <em style={{ color: "#D45B1A", fontStyle: "italic" }}>temps</em>{" "}

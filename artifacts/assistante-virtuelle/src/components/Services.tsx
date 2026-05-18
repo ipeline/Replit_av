@@ -169,7 +169,7 @@ export default function Services() {
               </button>
 
               <button
-                onClick={() => navigate(`/forfait/${pack.slug}`)}
+                onClick={() => navigate(`/rdv/${pack.slug}`)}
                 className="w-full py-3 rounded-xl text-sm font-semibold transition-opacity hover:opacity-90 cursor-pointer"
                 style={
                   pack.highlight
