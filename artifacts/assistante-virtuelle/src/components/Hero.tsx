@@ -48,7 +48,7 @@ export default function Hero() {
               Découvrir mes services
             </Button>
             <a
-              href="https://calendly.com/votre-lien"
+              href="https://calendly.com/ipeline_assistante-vituelle/reprenez-le-controleou-autre"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto"

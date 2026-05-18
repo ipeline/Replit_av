@@ -10,7 +10,7 @@ import { packs } from "@/data/packs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const CALENDLY_URL = "https://calendly.com/votre-lien";
+const CALENDLY_URL = "https://calendly.com/ipeline_assistante-vituelle/validons_votre_forfait";
 
 const packColors: Record<string, { bg: string; border: string; accent: string }> = {
   "coup-de-pouce": { bg: "rgba(243,171,6,0.08)", border: "#F3AB06", accent: "#72270C" },

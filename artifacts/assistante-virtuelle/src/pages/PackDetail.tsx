@@ -6,7 +6,7 @@ import { packs } from "@/data/packs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const CALENDLY_URL = "https://calendly.com/votre-lien";
+const CALENDLY_URL = "https://calendly.com/ipeline_assistante-vituelle/validons_votre_forfait";
 
 const packColors: Record<string, { border: string; check: string; badge: string; bg: string; text: string }> = {
   "coup-de-pouce": {

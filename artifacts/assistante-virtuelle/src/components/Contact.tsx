@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2, CalendarDays } from "lucide-react";
 
-const CALENDLY_URL = "https://calendly.com/votre-lien";
+const CALENDLY_URL = "https://calendly.com/ipeline_assistante-vituelle/reprenez-le-controleou-autre";
 
 const sujets = [
   "Gestion d'agenda",
