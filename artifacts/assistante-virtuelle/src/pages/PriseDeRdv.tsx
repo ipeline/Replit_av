@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowLeft, CalendarDays, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,7 +10,7 @@ import { packs } from "@/data/packs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const CALENDLY_URL = "https://calendly.com/ipeline_assistante-vituelle/validons_votre_forfait";
+const CONTACT_EMAIL = "votre-email@exemple.fr";
 
 const packColors: Record<string, { bg: string; border: string; accent: string }> = {
   "coup-de-pouce": { bg: "rgba(243,171,6,0.08)", border: "#F3AB06", accent: "#72270C" },
@@ -39,6 +39,17 @@ export default function PriseDeRdv() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(
+      `🚨 Demande urgente — Forfait ${pack?.name} — ${form.prenom}`
+    );
+    const body = encodeURIComponent(
+      `Nouveau client intéressé par le forfait ${pack?.name} (${pack?.price}${pack?.period})\n\n` +
+      `Prénom : ${form.prenom}\n` +
+      `Email : ${form.email}\n` +
+      `Téléphone : ${form.telephone || "Non renseigné"}\n\n` +
+      `Message :\n${form.message}`
+    );
+    window.open(`mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`);
     setSubmitted(true);
   };
 
@@ -79,7 +90,6 @@ export default function PriseDeRdv() {
             transition={{ duration: 0.5 }}
             className="text-center mb-10"
           >
-            {/* Pack badge */}
             <div
               className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6"
               style={{ background: colors.bg, border: `1px solid ${colors.border}`, color: colors.accent }}
@@ -91,43 +101,26 @@ export default function PriseDeRdv() {
               Parlons de votre projet
             </h1>
             <p className="text-foreground/60 text-lg max-w-md mx-auto">
-              Remplissez ce formulaire ou réservez directement un appel découverte gratuit de 30 minutes.
+              Dites-moi en quelques mots ce que vous attendez — je vous recontacte sous 24h pour convenir d'un rendez-vous.
             </p>
           </motion.div>
 
-          {/* Calendly CTA */}
+          {/* Urgency notice */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="rounded-2xl p-6 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+            className="rounded-2xl p-5 mb-8 flex items-start gap-4"
             style={{ background: colors.bg, border: `1px solid ${colors.border}` }}
           >
+            <Mail className="w-5 h-5 mt-0.5 shrink-0" style={{ color: colors.accent }} />
             <div>
-              <p className="font-semibold text-primary mb-1">Vous préférez en parler directement ?</p>
-              <p className="text-sm text-foreground/60">Réservez un créneau en 2 clics — sans engagement.</p>
+              <p className="font-semibold text-primary text-sm mb-0.5">Traitement prioritaire garanti</p>
+              <p className="text-sm text-foreground/60">
+                Les demandes liées à un forfait sont traitées en priorité. Vous recevrez une réponse sous 24h maximum.
+              </p>
             </div>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="shrink-0">
-              <Button
-                className="gap-2 whitespace-nowrap"
-                style={{
-                  background: colors.accent,
-                  color: "#fff",
-                  border: "none",
-                }}
-              >
-                <CalendarDays className="w-4 h-4" />
-                Réserver un appel
-              </Button>
-            </a>
           </motion.div>
-
-          {/* Divider */}
-          <div className="flex items-center gap-4 mb-8">
-            <div className="flex-1 h-px bg-border/40" />
-            <span className="text-sm text-foreground/40">ou envoyez-moi un message</span>
-            <div className="flex-1 h-px bg-border/40" />
-          </div>
 
           {/* Form */}
           <motion.div
@@ -141,9 +134,9 @@ export default function PriseDeRdv() {
                 <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-2">
                   <CheckCircle2 className="w-9 h-9 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-primary">Message envoyé !</h3>
+                <h3 className="text-2xl font-serif font-bold text-primary">Demande envoyée !</h3>
                 <p className="text-foreground/60 max-w-xs">
-                  Merci pour votre intérêt pour le forfait <strong>{pack.name}</strong>. Je vous répondrai dans les 24h pour convenir d'un rendez-vous.
+                  Merci pour votre intérêt pour le forfait <strong>{pack.name}</strong>. Je vous recontacte sous 24h pour convenir d'un rendez-vous.
                 </p>
                 <button
                   onClick={() => navigate("/")}

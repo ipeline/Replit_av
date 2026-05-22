@@ -54,14 +54,24 @@ export default function Hero() {
               className="w-full sm:w-auto"
             >
               <Button 
-                size="lg" 
+                size="lg"
                 variant="outline"
-                className="border-[#D45B1A] text-[#D45B1A] hover:bg-[#D45B1A]/5 text-base px-8 h-14 w-full"
+                className="w-full h-14 text-base px-8 border-2 hover:bg-[#ABC4AA]/10 transition-colors"
+                style={{ borderColor: "#ABC4AA", color: "#6a9a69" }}
               >
                 Prendre un café virtuel ☕
               </Button>
             </a>
           </div>
+
+          {/* Sage green accent strip under buttons */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="mt-8 mx-auto h-0.5 rounded-full max-w-xs"
+            style={{ background: "linear-gradient(to right, transparent, #ABC4AA, transparent)" }}
+          />
         </motion.div>
       </div>
     </section>

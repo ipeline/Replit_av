@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
 const doList = [
@@ -22,9 +23,34 @@ const dontList = [
 ];
 
 export default function DoAndDont() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <section ref={sectionRef} className="py-24 relative overflow-hidden">
+
+      {/* Parallax background */}
+      <motion.div
+        className="absolute inset-0 -top-24 -bottom-24 z-0"
+        style={{ y: bgY }}
+      >
+        <img
+          src="/bg-clarity.jpg"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Beige veil */}
+        <div className="absolute inset-0" style={{ background: "rgba(255,253,248,0.82)" }} />
+      </motion.div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
             Clarté et transparence
@@ -41,7 +67,8 @@ export default function DoAndDont() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-secondary/10 rounded-2xl p-8 lg:p-12 border border-secondary/30"
+            className="rounded-2xl p-8 lg:p-12 border border-secondary/40"
+            style={{ background: "rgba(171,196,170,0.18)", backdropFilter: "blur(4px)" }}
           >
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
@@ -66,7 +93,8 @@ export default function DoAndDont() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-red-50/50 rounded-2xl p-8 lg:p-12 border border-red-100"
+            className="rounded-2xl p-8 lg:p-12 border border-red-100"
+            style={{ background: "rgba(255,255,255,0.72)", backdropFilter: "blur(4px)" }}
           >
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">

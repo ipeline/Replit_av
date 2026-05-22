@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,7 +11,7 @@ const CALENDLY_URL = "https://calendly.com/ipeline_assistante-vituelle/reprenez-
 const sujets = [
   "Gestion d'agenda",
   "Gestion des emails",
-  "Rédaction & relecture",
+  "Organisation & Optimisation",
   "Réseaux sociaux",
   "Saisie de données",
   "Recherches diverses",
@@ -19,8 +19,16 @@ const sujets = [
 ];
 
 export default function Contact() {
+  const sectionRef = useRef<HTMLElement>(null);
   const [form, setForm] = useState({ prenom: "", email: "", sujet: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -32,8 +40,24 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 bg-[#FFFDF8]">
-      <div className="container mx-auto px-4 md:px-6 max-w-2xl">
+    <section ref={sectionRef} id="contact" className="py-28 relative overflow-hidden">
+
+      {/* Parallax background */}
+      <motion.div
+        className="absolute inset-0 -top-24 -bottom-24 z-0"
+        style={{ y: bgY }}
+      >
+        <img
+          src="/bg-contact.jpg"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Light veil — partial to let the photo breathe */}
+        <div className="absolute inset-0" style={{ background: "rgba(255,253,248,0.78)" }} />
+      </motion.div>
+
+      <div className="container mx-auto px-4 md:px-6 max-w-2xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +81,8 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-white border border-[#ABC4AA]/40 rounded-3xl p-8 md:p-12 shadow-sm"
+          className="border border-[#ABC4AA]/40 rounded-3xl p-8 md:p-12 shadow-sm"
+          style={{ background: "rgba(255,253,248,0.90)", backdropFilter: "blur(8px)" }}
         >
           {submitted ? (
             <div className="flex flex-col items-center justify-center min-h-[340px] text-center gap-4">
@@ -84,7 +109,7 @@ export default function Contact() {
                     id="prenom" name="prenom" placeholder="Marie"
                     value={form.prenom} onChange={handleChange} required
                     data-testid="input-prenom"
-                    className="border-[#ABC4AA]/60 focus-visible:ring-[#D45B1A]/30"
+                    className="border-[#ABC4AA]/60 focus-visible:ring-[#D45B1A]/30 bg-white/80"
                   />
                 </div>
                 <div className="space-y-1.5">
@@ -93,7 +118,7 @@ export default function Contact() {
                     id="email" name="email" type="email" placeholder="marie@exemple.fr"
                     value={form.email} onChange={handleChange} required
                     data-testid="input-email"
-                    className="border-[#ABC4AA]/60 focus-visible:ring-[#D45B1A]/30"
+                    className="border-[#ABC4AA]/60 focus-visible:ring-[#D45B1A]/30 bg-white/80"
                   />
                 </div>
               </div>
@@ -103,7 +128,7 @@ export default function Contact() {
                 <select
                   id="sujet" name="sujet" value={form.sujet}
                   onChange={handleChange} required data-testid="select-sujet"
-                  className="w-full h-10 rounded-md border border-[#ABC4AA]/60 bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#D45B1A]/30 focus:border-[#D45B1A]/60 transition-colors"
+                  className="w-full h-10 rounded-md border border-[#ABC4AA]/60 bg-white/80 px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#D45B1A]/30 focus:border-[#D45B1A]/60 transition-colors"
                 >
                   <option value="" disabled>Sélectionnez un sujet...</option>
                   {sujets.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -117,7 +142,7 @@ export default function Contact() {
                   placeholder="Décrivez-moi votre situation, vos besoins, ou ce dont vous souhaitez discuter..."
                   value={form.message} onChange={handleChange} required rows={5}
                   data-testid="textarea-message"
-                  className="border-[#ABC4AA]/60 focus-visible:ring-[#D45B1A]/30 resize-none"
+                  className="border-[#ABC4AA]/60 focus-visible:ring-[#D45B1A]/30 resize-none bg-white/80"
                 />
               </div>
 
